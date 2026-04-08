@@ -1,0 +1,45 @@
+---
+import { dev } from "astro";
+
+const barcaBaseURL = 'https://api.fc-barcelona.app/api/';
+
+const nextMatchEndpoint = 'next-match';
+const nextMatchURL = barcaBaseURL + nextMatchEndpoint;
+let nextMatchResponse = await fetch(nextMatchURL);
+let nextMatchArray = await nextMatchResponse.json();
+let nextMatch = nextMatchArray.data;
+let nextMatchId = nextMatch.id
+
+const calendarEndpoint = 'calendar';
+const calendarURL = barcaBaseURL + calendarEndpoint;
+let calendarResponse = await fetch(calendarURL);
+let calendarArray = await calendarResponse.json();
+let calendar = calendarArray.data;
+
+const hToHEndpoint = 'h2h?team=Real+Madrid';
+const hToHURL = barcaBaseURL + hToHEndpoint;
+let hToHResponse = await fetch(hToHURL);
+let hToHArray = await hToHResponse.json();
+let hToH = hToHArray.data
+
+console.log(hToH);
+
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+		<p>Hola chica</p>
+		<p>Debi tirar mas fotos de cuando te tuve, debi darte mas besos y abrazos las veces que pude</p>
+		<p>por la mañana cafe, por la tarde ron</p>
+	</body>
+</html>
