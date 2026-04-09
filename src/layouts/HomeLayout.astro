@@ -1,0 +1,40 @@
+--- 
+const { title } = Astro.props;
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="../../public/styles/global.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+      <!-- your content is injected here -->
+    </main>
+  </body>
+</html>
+
+<style>
+    /* https://css-tricks.com/perfect-full-page-background-image/ */
+    html {
+        background: url('../assets/campnou.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin: 1rem;
+      color: ;
+
+    }
+
+</style>

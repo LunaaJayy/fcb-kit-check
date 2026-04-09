@@ -1,45 +1,56 @@
 ---
-import { dev } from "astro";
+import HomeLayout from '../layouts/HomeLayout.astro'
+import NextMatch from '../components/nextMatch.astro';
 
 const barcaBaseURL = 'https://api.fc-barcelona.app/api/';
 
 const nextMatchEndpoint = 'next-match';
 const nextMatchURL = barcaBaseURL + nextMatchEndpoint;
-let nextMatchResponse = await fetch(nextMatchURL);
-let nextMatchArray = await nextMatchResponse.json();
-let nextMatch = nextMatchArray.data;
-let nextMatchId = nextMatch.id
+const nextMatchResponse = await fetch(nextMatchURL);
+const nextMatchArray = await nextMatchResponse.json();
+const nextMatch = nextMatchArray.data;
+const nextMatchId = nextMatch.id;
 
-const calendarEndpoint = 'calendar';
+const calendarEndpoint = 'calendar?limit=50&offset=0';
 const calendarURL = barcaBaseURL + calendarEndpoint;
-let calendarResponse = await fetch(calendarURL);
-let calendarArray = await calendarResponse.json();
-let calendar = calendarArray.data;
+const calendarResponse = await fetch(calendarURL);
+const calendarArray = await calendarResponse.json();
+const calendar = calendarArray.data;
+const allMatches = calendar.matches;
+
+// met behulp van: https://claude.ai/share/25b0ec6a-5a33-48c2-b95c-1ff0eaaf9f9b
+let nextMatchCal = allMatches.filter(m => m.id >= nextMatchId)
 
 const hToHEndpoint = 'h2h?team=Real+Madrid';
 const hToHURL = barcaBaseURL + hToHEndpoint;
-let hToHResponse = await fetch(hToHURL);
-let hToHArray = await hToHResponse.json();
-let hToH = hToHArray.data
+const hToHResponse = await fetch(hToHURL);
+const hToHArray = await hToHResponse.json();
+const hToH = hToHArray.data
 
-console.log(hToH);
-
+// console.log(nextMatchCal)
 
 ---
+<HomeLayout title="FC Barcelona Kit">
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<p>Hola chica</p>
-		<p>Debi tirar mas fotos de cuando te tuve, debi darte mas besos y abrazos las veces que pude</p>
-		<p>por la mañana cafe, por la tarde ron</p>
-	</body>
-</html>
+	<NextMatch />
+
+
+
+</HomeLayout>
+
+<style>
+	main {
+		/* voor midden: */
+		/* margin: auto;
+		width: 60vw; */
+		margin-right: .5rem;
+		width: 40vw;
+		max-width: 550px;
+		height: 100vh;
+		background-color: var(--bg-index);
+		backdrop-filter: blur(10px);
+		border-radius: 10px;
+
+	}
+
+</style>

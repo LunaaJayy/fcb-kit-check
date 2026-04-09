@@ -1,0 +1,17 @@
+@import url('https://fonts.cdnfonts.com/css/fc-barcelona');
+
+:root {
+    --bg-index: #2C2A264D;
+    --fcb-red: #a50044;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'F.C. BARCELONA', sans-serif;
+    font-size: 16px;
+}

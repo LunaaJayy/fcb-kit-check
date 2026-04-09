@@ -1,22 +1,3 @@
-
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
 # Astro FC Barcelona - What Kit to wear?
 ## Week 1
 ### Dag 1 - Woensdag 1 april, met 
@@ -34,4 +15,25 @@ Ik heb geleerd over het verschil tussen Content en Web API's en ook over query p
 
 **Wat ga ik morgen doen?**\
 De volgende keer ga ik mijn concept verder uitwerken. 
+
+## Reflectie Week 1
+- bedenken wt te doen
+- geinspireerd na gesprek
+- goeie manier van ideeen bedenken, zie boekje
+
+## Week 2
+### Dag 2 - Woensdag 8 april, met Louise
+**Wat heb ik vandaag gedaan?** \
+Vandaag heb ik vooral veel uitleg bijgewoond. Ik denk dat ik nu Astro goed genoeg begrijp om ermee aan de slag te kunnen, ookal blijft het nog een beetje vaag voor mij.
+Het is mij verder gelukt om van de FC Barcelona API alle benodigde informatie te krijgen voor mijn webiste. Verder ben ik bezig geweest met de styling van mijn website.
+
+**Hoeveel tijd heeft me dat gekost?**\
+De uitleg duurde de hele ochtend, vervolgens heb ik 2,5 uur gewerkt aan de API en de Astro bestanden opzetten enzo.
+
+**Wat heb ik geleerd?**\
+Ik heb heeel veel geleerd over Astro
+
+**Wat ga ik morgen doen?**\
+Morgen ga ik een basic styling maken zodat ik verder kan aan het implementeren van de API.
+
 
