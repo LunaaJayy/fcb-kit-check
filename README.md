@@ -36,4 +36,19 @@ Ik heb heeel veel geleerd over Astro
 **Wat ga ik morgen doen?**\
 Morgen ga ik een basic styling maken zodat ik verder kan aan het implementeren van de API.
 
+### Dag 3 - Donderdag 9 april, met Sela
+**Wat heb ik vandaag gedaan?** \
+
+
+**Hoeveel tijd heeft me dat gekost?**\
+
+
+**Wat heb ik geleerd?**\
+
+
+**Wat ga ik morgen doen?**\
+
+
+
+
 

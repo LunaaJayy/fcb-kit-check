@@ -1,4 +1,6 @@
 ---
+// https://claude.ai/share/ff0ad59a-9510-4904-9638-e870e808854d
+import { Temporal } from '@js-temporal/polyfill';
 import HomeLayout from '../layouts/HomeLayout.astro'
 import NextMatch from '../components/nextMatch.astro';
 
@@ -10,6 +12,23 @@ const nextMatchResponse = await fetch(nextMatchURL);
 const nextMatchArray = await nextMatchResponse.json();
 const nextMatch = nextMatchArray.data;
 const nextMatchId = nextMatch.id;
+
+console.log(nextMatch)
+
+const nextMatchDate = nextMatch.matchDate
+const date = Temporal.Instant.from(nextMatchDate).toZonedDateTimeISO('Europe/Amsterdam').toPlainDate();
+
+const day = date.toLocaleString('en-GB', { weekday: 'long' });
+const month = date.toLocaleString('en-GB', { month: 'long' });
+const year = date.year;
+const ordinal = (n) => {
+  const s = ['th','st','nd','rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
+
+const formatted = `${day}, ${ordinal(date.day)} of ${month} ${year}`;
+console.log(formatted)
 
 const calendarEndpoint = 'calendar?limit=50&offset=0';
 const calendarURL = barcaBaseURL + calendarEndpoint;
@@ -30,27 +49,18 @@ const hToH = hToHArray.data
 // console.log(nextMatchCal)
 
 ---
-<HomeLayout title="FC Barcelona Kit">
+<HomeLayout title="FC BARCELONA KIT">
 
-	<NextMatch />
-
-
+	<NextMatch 
+		match_date={formatted}
+		home_img= {nextMatch.homeTeamImageUrl}
+		home_team= {nextMatch.homeTeam}
+		away_img={nextMatch.awayTeamImageUrl}
+		away_team={nextMatch.awayTeam}
+		venue={nextMatch.venue}/>
 
 </HomeLayout>
 
 <style>
-	main {
-		/* voor midden: */
-		/* margin: auto;
-		width: 60vw; */
-		margin-right: .5rem;
-		width: 40vw;
-		max-width: 550px;
-		height: 100vh;
-		background-color: var(--bg-index);
-		backdrop-filter: blur(10px);
-		border-radius: 10px;
-
-	}
 
 </style>

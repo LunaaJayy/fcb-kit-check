@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/fc-barcelona');
+@import url("https://use.typekit.net/wrc2ogl.css");
 
 :root {
     --bg-index: #2C2A264D;
@@ -12,6 +12,6 @@
 
 
 body {
-    font-family: 'F.C. BARCELONA', sans-serif;
+    font-family: "brando-sans", sans-serif;
     font-size: 16px;
 }

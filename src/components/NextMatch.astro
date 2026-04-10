@@ -1,8 +1,46 @@
---- 
-const {} = Astro.props;
+---
+const { match_date, home_img, home_team, away_img, away_team, venue } = Astro.props;
 ---
 
 <section>
-    <h2>The Next Match:</h2>
+	<h2>El dia de partit:</h2>
+    <p>{venue}</p>
+	<p>{match_date}</p>
 
+	<div class="team-block">
+		<div class="hometeam">
+			<img src={home_img} alt={home_team} />
+			<p>{home_team}</p>
+		</div>
+		<p class="against">v</p>
+		<div class="awayteam">
+			<img src={away_img} alt={away_team} />
+			<p>{away_team}</p>
+		</div>
+	</div>
 </section>
+
+<style>
+    p, h2 {
+        text-align: center;
+    }
+	.team-block {
+		display: flex;
+		flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: .7rem;
+        }
+	}
+
+    .against {
+        font-family: "transducer", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+    }
+    img {
+        width: 5rem;
+    }
+</style>
