@@ -1,5 +1,5 @@
 ---
-const { match_date, home_img, home_team, away_img, away_team, venue } = Astro.props;
+const { match_date, home_img, home_team, away_img, away_team, venue, weather, weather_des } = Astro.props;
 ---
 
 <section>
@@ -18,6 +18,11 @@ const { match_date, home_img, home_team, away_img, away_team, venue } = Astro.pr
 			<p>{away_team}</p>
 		</div>
 	</div>
+</section>
+<section>
+    <h2>Weather forecast:</h2>
+    <p>{weather}°C</p>
+    <p>{weather_des}</p>
 </section>
 
 <style>
