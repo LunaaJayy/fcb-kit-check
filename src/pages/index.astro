@@ -2,9 +2,7 @@
 // https://claude.ai/share/ff0ad59a-9510-4904-9638-e870e808854d
 import { Temporal } from "@js-temporal/polyfill";
 import HomeLayout from "../layouts/HomeLayout.astro";
-import NextMatch from "../components/nextMatch.astro";
-import { all } from "express/lib/application";
-import { Picture } from "astro:assets";
+import NextMatch from "./../components/NextMatch.astro";
 
 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=41.3888&longitude=2.159&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&timezone=auto&forecast_days=14`;
 // https://open-meteo.com/en/docs?latitude=41.3888&longitude=2.159&forecast_days=14&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto
