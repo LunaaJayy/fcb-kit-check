@@ -1,10 +1,21 @@
 ---
-const { match_date, home_img, home_team, away_img, away_team, venue, weather, weather_des } = Astro.props;
+const {
+	match_date,
+	home_img,
+	home_team,
+	away_img,
+	away_team,
+	venue,
+	weather,
+	kit_image,
+	weather_des,
+} = Astro.props;
+console.log(kit_image);
 ---
 
 <section>
 	<h2>El dia de partit:</h2>
-    <p>{venue}</p>
+	<p>{venue}</p>
 	<p>{match_date}</p>
 
 	<div class="team-block">
@@ -20,32 +31,34 @@ const { match_date, home_img, home_team, away_img, away_team, venue, weather, we
 	</div>
 </section>
 <section>
-    <h2>Weather forecast:</h2>
-    <p>{weather}°C</p>
-    <p>{weather_des}</p>
+	<h2>Weather forecast:</h2>
+	<p>{weather}°C</p>
+	<p>{weather_des}</p>
+	<img src={`/img/kit-${kit_image}.png`} alt="" />
 </section>
 
 <style>
-    p, h2 {
-        text-align: center;
-    }
+	p,
+	h2 {
+		text-align: center;
+	}
 	.team-block {
 		display: flex;
 		flex-direction: row;
-        justify-content: center;
-        align-items: center;
+		justify-content: center;
+		align-items: center;
 
-        p {
-            font-size: .7rem;
-        }
+		p {
+			font-size: 0.7rem;
+		}
 	}
 
-    .against {
-        font-family: "transducer", sans-serif;
-        font-weight: 100;
-        font-style: normal;
-    }
-    img {
-        width: 5rem;
-    }
+	.against {
+		font-family: "transducer", sans-serif;
+		font-weight: 100;
+		font-style: normal;
+	}
+	img {
+		width: 5rem;
+	}
 </style>

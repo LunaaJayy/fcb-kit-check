@@ -81,7 +81,7 @@ Ik was er niet ivm Smashing Conference!
 
 ### Dag 5 - Donderdag 16 april
 **Wat heb ik vandaag gedaan?** \
-
+Vandaag heb ik een begin
 
 **Hoeveel tijd heeft me dat gekost?**\
 
@@ -90,6 +90,21 @@ Ik was er niet ivm Smashing Conference!
 
 
 **Wat ga ik morgen doen?**\
+
+## Reflectie Week 3
+
+### Dag 6 - Woensdag 22 april, met Sela
+**Wat heb ik vandaag gedaan?** \
+Ik heb ervoor gezorgd dat de weatherAPI het volledig doet, en dat er een shirt wordt laten zien tov van het weer. Het weer is ook het 'gemiddelde weer' (tussen 16:00 en 23:00)
+
+**Hoeveel tijd heeft me dat gekost?**\
+Het heeft me de hele dag gekost. De weather denk ik zo'n 3/4 uur, de kit 1,5 uur ofzo.
+
+**Wat heb ik geleerd?**\
+Ik heb meer geleerd over API's toevoegen met ${} en Astro werkt met het op het internet zetten. 
+
+**Wat ga ik morgen doen?**\
+Morgen ga ik de Geolocation API toevoegen, de stijling afmaken, en een start maken aan de detail pagina.
 
 
 
@@ -102,3 +117,8 @@ navigator.geolocation.getCurrentPosition((result) => {
 die geeft 
 
 moretools -> sensors -> bij location kan je de locatie invoeren
+
+
+EXTRA'S:
+- als vandaag wedstrijd is, dan tekst: UN DIA DE PARTIT!
+    en geluid van un dia de partit
