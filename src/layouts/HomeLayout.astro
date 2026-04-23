@@ -1,54 +1,52 @@
---- 
+---
 const { title } = Astro.props;
-
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <link rel="stylesheet" href="../../styles/global.css">
-  </head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<link rel="stylesheet" href="../../styles/global.css" />
+		<link rel="icon" href="/img/favicon.png" />
+	</head>
 
-  <body>
-    <main>
-      <h1>{title}</h1>
-      <slot />
-      <!-- your content is injected here -->
-    </main>
-  </body>
+	<body>
+		<main>
+			<h1>{title}</h1>
+			<slot />
+			<!-- your content is injected here -->
+		</main>
+	</body>
 </html>
 
 <style>
-    /* https://css-tricks.com/perfect-full-page-background-image/ */
-    html {
-        background: url('../assets/campnou.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+	/* https://css-tricks.com/perfect-full-page-background-image/ */
+	html {
+		background: url("/img/campnou.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 
-    main {
+	main {
 		/* voor midden: */
 		/* margin: auto;
 		width: 60vw; */
-		margin: .5rem;
-		width: 40vw;
-    padding: 1rem;
+		margin: 0.5rem;
+		width: 45vw;
+		/* padding: 0 0.5rem 0.5rem; */
 		max-width: 550px;
 		height: 100%;
 		background-color: var(--bg-index);
 		backdrop-filter: blur(10px);
 		border-radius: 10px;
+	}
 
-	  }
-
-    h1 {
-      font-family: 'transducer-condensed', sans-serif;
-      font-size: 3rem;
-      text-align: center;
-    }
-
+	h1 {
+		font-family: "transducer-condensed", sans-serif;
+		font-size: 3.5rem;
+		text-align: center;
+	}
 </style>

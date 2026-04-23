@@ -1,0 +1,102 @@
+{
+	"realmadrid": {
+		"latitude": 40.4531,
+		"longitude": -3.6883,
+		"city": "Madrid"
+	},
+	"barcelona": {
+		"latitude": 41.3809,
+		"longitude": 2.1228,
+		"city": "Barcelona"
+	},
+	"atleticomadrid": {
+		"latitude": 40.4361,
+		"longitude": -3.5995,
+		"city": "Madrid"
+	},
+	"sevilla": {
+		"latitude": 37.3838,
+		"longitude": -5.9706,
+		"city": "Seville"
+	},
+	"realbetis": {
+		"latitude": 37.3561,
+		"longitude": -5.9811,
+		"city": "Seville"
+	},
+	"valencia": {
+		"latitude": 39.4747,
+		"longitude": -0.3585,
+		"city": "Valencia"
+	},
+	"villareal": {
+		"latitude": 39.9444,
+		"longitude": -0.1039,
+		"city": "Villarreal"
+	},
+	"realsociedad": {
+		"latitude": 43.3015,
+		"longitude": -1.9738,
+		"city": "San Sebastián"
+	},
+	"athleticclub": {
+		"latitude": 43.2642,
+		"longitude": -2.9494,
+		"city": "Bilbao"
+	},
+	"celtavigo": {
+		"latitude": 42.2117,
+		"longitude": -8.734,
+		"city": "Vigo"
+	},
+	"getafe": {
+		"latitude": 40.3246,
+		"longitude": -3.7133,
+		"city": "Getafe"
+	},
+	"osasuna": {
+		"latitude": 42.7964,
+		"longitude": -1.6375,
+		"city": "Pamplona"
+	},
+	"rayovallecano": {
+		"latitude": 40.3919,
+		"longitude": -3.6561,
+		"city": "Madrid"
+	},
+	"mallorca": {
+		"latitude": 39.59,
+		"longitude": 2.645,
+		"city": "Palma"
+	},
+	"espanyol": {
+		"latitude": 41.3475,
+		"longitude": 2.0753,
+		"city": "Barcelona"
+	},
+	"alaves": {
+		"latitude": 42.8514,
+		"longitude": -2.6817,
+		"city": "Vitoria-Gasteiz"
+	},
+	"girona": {
+		"latitude": 41.9648,
+		"longitude": 2.8247,
+		"city": "Girona"
+	},
+	"elche": {
+		"latitude": 38.2669,
+		"longitude": -0.6985,
+		"city": "Elche"
+	},
+	"levante": {
+		"latitude": 39.4959,
+		"longitude": -0.3612,
+		"city": "Valencia"
+	},
+	"realoviedo": {
+		"latitude": 43.3536,
+		"longitude": -5.849,
+		"city": "Oviedo"
+	}
+}

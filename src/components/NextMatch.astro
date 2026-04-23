@@ -10,10 +10,9 @@ const {
 	kit_image,
 	weather_des,
 } = Astro.props;
-console.log(kit_image);
 ---
 
-<section>
+<section class="match-info">
 	<h2>El dia de partit:</h2>
 	<p>{venue}</p>
 	<p>{match_date}</p>
@@ -30,26 +29,44 @@ console.log(kit_image);
 		</div>
 	</div>
 </section>
-<section>
-	<h2>Weather forecast:</h2>
-	<p>{weather}°C</p>
-	<p>{weather_des}</p>
-	<img src={`/img/kit-${kit_image}.png`} alt="" />
+<section class="weather-info">
+	<div class="weather-block">
+		<div>
+			<h3>Where wil you watch?</h3>
+			<div class="radio">
+				<input type="radio" value="live" name="where" id="live" checked />
+				<label for="live">Live</label>
+				<input type="radio" value="home" name="where" id="home" />
+				<label for="home">Home</label>
+			</div>
+
+			<h3>Weather:</h3>
+			<p class="temperature">{weather}<span>°C</span></p>
+			<p class="descrip">{weather_des}</p>
+		</div>
+		<img src={`/img/kit-${kit_image}.png`} alt="" class="kit-img" />
+	</div>
 </section>
 
 <style>
 	p,
-	h2 {
+	h2,
+	h3 {
 		text-align: center;
 	}
+
 	.team-block {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+		margin: 1rem 2rem 0;
 
 		p {
 			font-size: 0.7rem;
+		}
+		img {
+			width: 7rem;
 		}
 	}
 
@@ -57,8 +74,55 @@ console.log(kit_image);
 		font-family: "transducer", sans-serif;
 		font-weight: 100;
 		font-style: normal;
+		margin: 0 1.5rem;
+		color: var(--fcb-gold);
 	}
-	img {
-		width: 5rem;
+
+	.weather-info {
+		margin-top: 2rem;
+	}
+
+	.weather-block {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		& > div {
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 0.5rem;
+			color: var(--light-text);
+
+			p:nth-of-type(1) {
+				font-family: "transducer-condensed", sans-serif;
+				font-size: 5rem;
+				span {
+					font-size: 1rem;
+				}
+			}
+		}
+		img {
+			width: 15rem;
+		}
+	}
+
+	.radio {
+		display: inline-flex;
+		overflow: hidden;
+		border-radius: 1rem;
+		box-shadow: 0 0 5px rgba(0 0 0 / 0.25);
+
+		input {
+			display: none;
+		}
+		label {
+			padding: 0.5rem;
+			cursor: pointer;
+			background-color: var(--fcb-light-gold);
+
+			&:checked {
+				background-color: var(--fcb-gold);
+			}
+		}
 	}
 </style>

@@ -1,17 +1,20 @@
 @import url("https://use.typekit.net/wrc2ogl.css");
 
 :root {
-    --bg-index: #2C2A264D;
-    --fcb-red: #a50044;
+	--bg-index: #2c2a264d;
+	--fcb-red: #a50044;
+	--light-text: #f6f4ed;
+	--fcb-gold: #edbb00;
+	--fcb-light-gold: #ffd43a;
+	--fcb-blue: #004d98;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
+	box-sizing: border-box;
+	margin: 0;
 }
 
-
 body {
-    font-family: "brando-sans", sans-serif;
-    font-size: 16px;
+	font-family: "brando-sans", sans-serif;
+	font-size: 16px;
 }
