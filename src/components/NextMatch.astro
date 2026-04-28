@@ -10,6 +10,8 @@ const {
 	kit_image,
 	weather_des,
 } = Astro.props;
+
+import Button from "./Button.astro";
 ---
 
 <section class="match-info">
@@ -28,6 +30,7 @@ const {
 			<p>{away_team}</p>
 		</div>
 	</div>
+	<slot />
 </section>
 <section class="weather-info">
 	<div class="weather-block">

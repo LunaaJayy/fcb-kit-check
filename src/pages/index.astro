@@ -3,6 +3,7 @@
 import { Temporal } from "@js-temporal/polyfill";
 import HomeLayout from "../layouts/HomeLayout.astro";
 import NextMatch from "./../components/NextMatch.astro";
+import Button from "./../components/Button.astro";
 
 // bron: https://claude.ai/share/e1f088ad-72b6-48d3-8a5c-6f2ea805084a
 import laLigaLocations from "./../locations.json" assert { type: "json" };
@@ -131,12 +132,6 @@ const gameTemp =
 const weatherDesc =
 	wmoDescriptions[hourlyWeather.weather_code[weatherIndexStart]];
 
-// TO DO ???? MAYBE ------ known time:
-// const dateTimeForWeather = nextMatch.matchDate.slice(0, 13);
-// const weatherIndexKnown = weatherData.hourly.time.findIndex((t) =>
-// 	t.startsWith(dateTimeForWeather),
-// );
-
 // ----- KIT KIEZEN
 let kitImage = "";
 
@@ -159,8 +154,9 @@ if (gameTemp < 12) {
 		venue={nextMatch.venue}
 		weather={gameTemp}
 		weather_des={weatherDesc}
-		kit_image={kitImage}
-	/>
+		kit_image={kitImage}>
+		<Button href="/h2h" text="See head 2 head" />
+	</NextMatch>
 </HomeLayout>
 
 <script
