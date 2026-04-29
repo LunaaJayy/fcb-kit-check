@@ -1,17 +1,6 @@
 ---
-const {
-	match_date,
-	home_img,
-	home_team,
-	away_img,
-	away_team,
-	venue,
-	weather,
-	kit_image,
-	weather_des,
-} = Astro.props;
-
-import Button from "./Button.astro";
+const { match_date, home_img, home_team, away_img, away_team, venue } =
+	Astro.props;
 ---
 
 <section class="match-info">
@@ -31,24 +20,6 @@ import Button from "./Button.astro";
 		</div>
 	</div>
 	<slot />
-</section>
-<section class="weather-info">
-	<div class="weather-block">
-		<div>
-			<h3>Where wil you watch?</h3>
-			<div class="radio">
-				<input type="radio" value="live" name="where" id="live" checked />
-				<label for="live">Live</label>
-				<input type="radio" value="home" name="where" id="home" />
-				<label for="home">Home</label>
-			</div>
-
-			<h3>Weather:</h3>
-			<p class="temperature">{weather}<span>°C</span></p>
-			<p class="descrip">{weather_des}</p>
-		</div>
-		<img src={`/img/kit-${kit_image}.png`} alt="" class="kit-img" />
-	</div>
 </section>
 
 <style>
@@ -79,53 +50,5 @@ import Button from "./Button.astro";
 		font-style: normal;
 		margin: 0 1.5rem;
 		color: var(--fcb-gold);
-	}
-
-	.weather-info {
-		margin-top: 2rem;
-	}
-
-	.weather-block {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		& > div {
-			margin-left: auto;
-			margin-right: auto;
-			padding-bottom: 0.5rem;
-			color: var(--light-text);
-
-			p:nth-of-type(1) {
-				font-family: "transducer-condensed", sans-serif;
-				font-size: 5rem;
-				span {
-					font-size: 1rem;
-				}
-			}
-		}
-		img {
-			width: 15rem;
-		}
-	}
-
-	.radio {
-		display: inline-flex;
-		overflow: hidden;
-		border-radius: 1rem;
-		box-shadow: 0 0 5px rgba(0 0 0 / 0.25);
-
-		input {
-			display: none;
-		}
-		label {
-			padding: 0.5rem;
-			cursor: pointer;
-			background-color: var(--fcb-light-gold);
-
-			&:checked {
-				background-color: var(--fcb-gold);
-			}
-		}
 	}
 </style>

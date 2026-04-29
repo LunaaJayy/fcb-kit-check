@@ -1,5 +1,61 @@
 ---
+import { Temporal } from "@js-temporal/polyfill";
 import HomeLayout from "../../layouts/HomeLayout.astro";
+import Button from "../../components/Button.astro";
+import NextMatch from "../../components/NextMatch.astro";
+import HeadToHead from "../../components/HeadToHead.astro";
+
+const barcaBaseURL = "https://api.fc-barcelona.app/api/";
+
+const nextMatchEndpoint = "next-match";
+const nextMatchResponse = await fetch(barcaBaseURL + nextMatchEndpoint);
+const nextMatchArray = await nextMatchResponse.json();
+const nextMatch = nextMatchArray.data;
+
+nextMatch.h2h = (
+	nextMatch.homeTeam.replaceAll(" ", "+") +
+	nextMatch.awayTeam.replaceAll(" ", "+")
+).replaceAll("Barcelona", "");
+
+const nextMatchDate = nextMatch.matchDate;
+const date = Temporal.Instant.from(nextMatchDate)
+	.toZonedDateTimeISO("Europe/Amsterdam")
+	.toPlainDate();
+
+const day = date.toLocaleString("en-GB", { weekday: "long" });
+const month = date.toLocaleString("en-GB", { month: "long" });
+const year = date.year;
+const ordinal = (n) => {
+	const s = ["th", "st", "nd", "rd"];
+	const v = n % 100;
+	return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
+
+const formatted = `${day}, ${ordinal(date.day)} of ${month} ${year}`;
+
+const hToHEndpoint = `h2h?team=${nextMatch.h2h}`;
+const hToHURL = barcaBaseURL + hToHEndpoint;
+const hToHResponse = await fetch(hToHURL);
+const hToHArray = await hToHResponse.json();
+const hToH = hToHArray.data;
 ---
 
-<HomeLayout title="HEAD2HEAD" />
+<HomeLayout title="HEAD2HEAD">
+	<Button href="/" text="Go Back" />
+	<NextMatch
+		match_date={formatted}
+		home_img={nextMatch.homeTeamImageUrl}
+		home_team={nextMatch.homeTeam}
+		away_img={nextMatch.awayTeamImageUrl}
+		away_team={nextMatch.awayTeam}
+		venue={nextMatch.venue}
+	/>
+
+	<HeadToHead
+		wins={hToH.summary.wins}
+		draws={hToH.summary.draws}
+		losses={hToH.summary.losses}
+		goals={hToH.summary.goalsFor}
+		goalsAgainst={hToH.summary.goalsAgainst}
+	/>
+</HomeLayout>
