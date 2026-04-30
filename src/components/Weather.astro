@@ -1,11 +1,20 @@
 ---
-const { gameTemp, kit_image, weather_des } = Astro.props;
+const {
+	gameTemp,
+	kit_image,
+	weather_des,
+	rain,
+	humidity,
+	uvIndex,
+	wind,
+	windDir,
+} = Astro.props;
 ---
 
 <section class="weather-info">
 	<div class="weather-block">
 		<div>
-			<h3>Where wil you watch?</h3>
+			<h3>Where will <br /> you watch?</h3>
 			<div class="radio">
 				<input type="radio" value="live" name="where" id="live" checked />
 				<label for="live">Live</label>
@@ -14,8 +23,21 @@ const { gameTemp, kit_image, weather_des } = Astro.props;
 			</div>
 
 			<h3>Weather:</h3>
-			<p class="temperature">{gameTemp}<span>°C</span></p>
+			<button class="temperature" popovertarget="moreweather"
+				>{gameTemp}<span>°C</span></button
+			>
 			<p class="descrip">{weather_des}</p>
+			<div popover="manual" id="moreweather">
+				<div class="forflex">
+					<h3>Match Day Weather</h3>
+					<p>{gameTemp}°C <span>Temperature</span></p>
+					<p>{weather_des} <span>Condition</span></p>
+					<p>{rain} mm <span>Precipitation</span></p>
+					<p>{humidity}% <span>Humidity</span></p>
+					<p>{uvIndex} <span>UV Index</span></p>
+					<p>{windDir} {wind} km/h <span>Wind</span></p>
+				</div>
+			</div>
 		</div>
 		<img src={`/img/kit-${kit_image}.png`} alt="" class="kit-img" />
 	</div>
@@ -24,7 +46,8 @@ const { gameTemp, kit_image, weather_des } = Astro.props;
 <style>
 	p,
 	h2,
-	h3 {
+	h3,
+	button {
 		text-align: center;
 	}
 
@@ -43,9 +66,16 @@ const { gameTemp, kit_image, weather_des } = Astro.props;
 			padding-bottom: 0.5rem;
 			color: var(--light-text);
 
-			p:nth-of-type(1) {
+			button {
+				background: none;
+				border: none;
 				font-family: "transducer-condensed", sans-serif;
 				font-size: 5rem;
+				color: var(--light-text);
+				display: block;
+				margin: auto;
+				anchor-name: --button;
+
 				span {
 					font-size: 1rem;
 				}
@@ -69,10 +99,67 @@ const { gameTemp, kit_image, weather_des } = Astro.props;
 			padding: 0.5rem;
 			cursor: pointer;
 			background-color: var(--fcb-light-gold);
+		}
+		input:checked + label {
+			background-color: var(--fcb-gold);
+		}
+	}
 
-			&:checked {
-				background-color: var(--fcb-gold);
+	#moreweather {
+		width: 50vw;
+		position: absolute;
+		position-anchor: --button;
+		position-area: top right;
+		border: none;
+		border-radius: 0.5rem;
+		padding: 1rem;
+		background-color: var(--dark-blue);
+		color: var(--light-text);
+
+		.forflex {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		h3 {
+			width: 100%;
+		}
+
+		p {
+			font-size: 1.2rem;
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			line-height: 1.2;
+			text-align: left;
+			width: 40%;
+			margin: 0.5rem 0;
+			padding: 0.5rem;
+			border-radius: 0.5rem;
+			background-color: var(--lighter-blue);
+			font-family: "transducer-condensed", sans-serif;
+
+			span {
+				font-size: 0.8rem;
+				font-weight: 300;
+				font-family: "brando-sans", sans-serif;
 			}
 		}
 	}
 </style>
+
+<script>
+	//@ts-nocheck
+	const popoverBtn = document.querySelector(".temperature");
+	const popElem = document.querySelector("#moreweather");
+
+	popoverBtn.addEventListener("mouseenter", () => {
+		console.log("show");
+		popElem.showPopover();
+	});
+	popoverBtn.addEventListener("mouseleave", () => {
+		console.log("hide");
+		popElem.hidePopover();
+	});
+</script>

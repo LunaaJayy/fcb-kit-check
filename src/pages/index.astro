@@ -111,7 +111,7 @@ const hToHResponse = await fetch(hToHURL);
 const hToHArray = await hToHResponse.json();
 const hToH = hToHArray.data;
 
-console.log(hToH);
+// console.log(hToH);
 
 //console.log(nextMatchCal);
 // nextMatchCal.map((item) => console.log(item.matchDate));
@@ -121,10 +121,12 @@ console.log(hToH);
 const lat = nextMatch.location.latitude;
 const long = nextMatch.location.longitude;
 
-const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&timezone=auto&forecast_days=14`;
+const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,weather_code,precipitation,wind_speed_10m,wind_direction_10m,relative_humidity_2m,uv_index&timezone=auto&past_days=0&forecast_days=14`;
 const weatherRes = await fetch(weatherUrl);
 const weatherData = await weatherRes.json();
 // https://open-meteo.com/en/docs?latitude=41.3888&longitude=2.159&forecast_days=14&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto
+
+// console.log(weatherData);
 
 // unknown time
 const hourlyWeather = weatherData.hourly;
@@ -141,6 +143,52 @@ const gameTemp =
 	2;
 const weatherDesc =
 	wmoDescriptions[hourlyWeather.weather_code[weatherIndexStart]];
+
+const humidity =
+	(Math.round(hourlyWeather.relative_humidity_2m[weatherIndexStart]) +
+		Math.round(hourlyWeather.relative_humidity_2m[weatherIndexEnd])) /
+	2;
+
+const uvIndex =
+	(Math.round(hourlyWeather.uv_index[weatherIndexStart]) +
+		Math.round(hourlyWeather.uv_index[weatherIndexEnd])) /
+	2;
+
+const windSpeed =
+	(Math.round(hourlyWeather.wind_speed_10m[weatherIndexStart]) +
+		Math.round(hourlyWeather.wind_speed_10m[weatherIndexEnd])) /
+	2;
+
+const windDirDegr =
+	(Math.round(hourlyWeather.wind_direction_10m[weatherIndexStart]) +
+		Math.round(hourlyWeather.wind_direction_10m[weatherIndexEnd])) /
+	2;
+
+const rain =
+	(Math.round(hourlyWeather.precipitation[weatherIndexStart]) +
+		Math.round(hourlyWeather.precipitation[weatherIndexEnd])) /
+	2;
+
+let windDir = "Unknown";
+
+// https://uni.edu/storm/Wind%20Direction%20slide.pdf
+if (windDirDegr < 11.25 || windDirDegr > 348.75) {
+	windDir = "N";
+} else if (11.25 < windDirDegr < 56.25) {
+	windDir = "NE";
+} else if (56.25 < windDirDegr < 101.25) {
+	windDir = "E";
+} else if (101.25 < windDirDegr < 146.25) {
+	windDir = "SE";
+} else if (146.25 < windDirDegr < 191.25) {
+	windDir = "S";
+} else if (191.25 < windDirDegr < 236.25) {
+	windDir = "SW";
+} else if (236.25 < windDirDegr < 281.25) {
+	windDir = "W";
+} else if (281.25 < windDirDegr < 56.25) {
+	windDir = "NW";
+}
 
 // ----- KIT KIEZEN
 let kitImage = "shortsleeve";
@@ -166,7 +214,16 @@ if (gameTemp < 12) {
 		venue={nextMatch.venue}>
 		<Button href="/h2h" text="See head 2 head" />
 	</NextMatch>
-	<Weather gameTemp={gameTemp} weather_des={weatherDesc} kit_image={kitImage} />
+	<Weather
+		gameTemp={gameTemp}
+		weather_des={weatherDesc}
+		kit_image={kitImage}
+		rain={rain}
+		humidity={humidity}
+		uvIndex={uvIndex}
+		windDir={windDir}
+		wind={windSpeed}
+	/>
 </HomeLayout>
 
 <script
@@ -177,7 +234,7 @@ if (gameTemp < 12) {
 	}}
 >
 	async function callWeatherAPI(lat, long) {
-		const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&timezone=auto&forecast_days=14`;
+		const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,weather_code,precipitation,wind_speed_10m,wind_direction_10m,relative_humidity_2m,uv_index&timezone=auto&past_days=0&forecast_days=14`;
 		const weatherRes = await fetch(weatherUrl);
 		const weatherData = await weatherRes.json();
 		// https://open-meteo.com/en/docs?latitude=41.3888&longitude=2.159&forecast_days=14&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto
@@ -197,7 +254,63 @@ if (gameTemp < 12) {
 		const weatherDesc =
 			wmoDescriptions[hourlyWeather.weather_code[weatherIndexStart]];
 
-		return { weatherData, gameTemp, weatherDesc };
+		const humidity =
+			(Math.round(hourlyWeather.relative_humidity_2m[weatherIndexStart]) +
+				Math.round(hourlyWeather.relative_humidity_2m[weatherIndexEnd])) /
+			2;
+
+		const uvIndex =
+			(Math.round(hourlyWeather.uv_index[weatherIndexStart]) +
+				Math.round(hourlyWeather.uv_index[weatherIndexEnd])) /
+			2;
+
+		const windSpeed =
+			(Math.round(hourlyWeather.wind_speed_10m[weatherIndexStart]) +
+				Math.round(hourlyWeather.wind_speed_10m[weatherIndexEnd])) /
+			2;
+
+		const windDirDegr =
+			(Math.round(hourlyWeather.wind_direction_10m[weatherIndexStart]) +
+				Math.round(hourlyWeather.wind_direction_10m[weatherIndexEnd])) /
+			2;
+
+		const rain =
+			(Math.round(hourlyWeather.precipitation[weatherIndexStart]) +
+				Math.round(hourlyWeather.precipitation[weatherIndexEnd])) /
+			2;
+
+		let windDir = "Unknown";
+
+		// https://uni.edu/storm/Wind%20Direction%20slide.pdf
+		if (windDirDegr < 11.25 || windDirDegr > 348.75) {
+			windDir = "N";
+		} else if (11.25 < windDirDegr < 56.25) {
+			windDir = "NE";
+		} else if (56.25 < windDirDegr < 101.25) {
+			windDir = "E";
+		} else if (101.25 < windDirDegr < 146.25) {
+			windDir = "SE";
+		} else if (146.25 < windDirDegr < 191.25) {
+			windDir = "S";
+		} else if (191.25 < windDirDegr < 236.25) {
+			windDir = "SW";
+		} else if (236.25 < windDirDegr < 281.25) {
+			windDir = "W";
+		} else if (281.25 < windDirDegr < 56.25) {
+			windDir = "NW";
+		}
+
+		console.log(gameTemp, weatherDesc, humidity, uvIndex, windSpeed, windDir);
+		return {
+			weatherData,
+			gameTemp,
+			weatherDesc,
+			humidity,
+			uvIndex,
+			windSpeed,
+			windDir,
+			rain,
+		};
 	}
 
 	async function getHomeLocation() {
@@ -241,9 +354,18 @@ if (gameTemp < 12) {
 			kitImage = "longsleeve";
 		}
 
-		document.querySelector(".temperature").textContent = result.gameTemp + "°C";
+		document.querySelector(".temperature").firstChild.textContent =
+			result.gameTemp;
 		document.querySelector(".descrip").textContent = result.weatherDesc;
 		document.querySelector(".kit-img").src = `/img/kit-${kitImage}.png`;
+		const ps = document.querySelectorAll(".forflex p");
+
+		ps[0].firstChild.textContent = result.gameTemp + "°C";
+		ps[1].firstChild.textContent = result.weatherDesc;
+		ps[2].firstChild.textContent = result.rain + " mm";
+		ps[3].firstChild.textContent = result.humidity + "%";
+		ps[4].firstChild.textContent = result.uvIndex;
+		ps[5].firstChild.textContent = result.windDir + result.wind + "km/h";
 	}
 
 	document.querySelectorAll(".radio input").forEach((radio) => {
