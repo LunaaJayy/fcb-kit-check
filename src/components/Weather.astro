@@ -14,7 +14,7 @@ const {
 <section class="weather-info">
 	<div class="weather-block">
 		<div>
-			<h3>Where will <br /> you watch?</h3>
+			<h3>Where will you watch?</h3>
 			<div class="radio">
 				<input type="radio" value="live" name="where" id="live" checked />
 				<label for="live">Live</label>
@@ -51,8 +51,8 @@ const {
 		text-align: center;
 	}
 
-	.weather-info {
-		margin-top: 2rem;
+	h3 {
+		color: var(--fcb-gold);
 	}
 
 	.weather-block {
@@ -87,7 +87,10 @@ const {
 	}
 
 	.radio {
-		display: inline-flex;
+		color: var(--fcb-light-gold);
+		display: flex;
+		width: fit-content;
+		margin: 0.5rem auto 1rem;
 		overflow: hidden;
 		border-radius: 1rem;
 		box-shadow: 0 0 5px rgba(0 0 0 / 0.25);
@@ -98,10 +101,12 @@ const {
 		label {
 			padding: 0.5rem;
 			cursor: pointer;
-			background-color: var(--fcb-light-gold);
+			background-color: var(--lighter-blue);
+			box-shadow: 3px 3px 10px -4px #000000;
 		}
 		input:checked + label {
-			background-color: var(--fcb-gold);
+			background-color: var(--dark-blue);
+			box-shadow: inset 3px 3px 10px -4px #000000;
 		}
 	}
 
@@ -145,6 +150,17 @@ const {
 				font-weight: 300;
 				font-family: "brando-sans", sans-serif;
 			}
+		}
+	}
+
+	@media (width <= 450px) {
+		.weather-block {
+			flex-direction: column;
+		}
+
+		#moreweather {
+			position-area: block-start;
+			width: 80vw;
 		}
 	}
 </style>
