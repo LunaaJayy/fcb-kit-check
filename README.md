@@ -200,3 +200,9 @@ Ik ben trots op mijn resultaat. Ookal waren mijn ideeën wel ambiteuzer dan mijn
 
 
 ## Bronnen
+- Claude AI - Locations LaLiga: https://claude.ai/share/e1f088ad-72b6-48d3-8a5c-6f2ea805084a
+- ClaudeAI - Temporal: https://claude.ai/share/ff0ad59a-9510-4904-9638-e870e808854d
+- CSS Tricks - Gradient border: https://css-tricks.com/gradient-borders-in-css/
+- CSS Tricks - Full background image: https://css-tricks.com/perfect-full-page-background-image/
+- Jad, voor hulp bij verschillende vragen
+
