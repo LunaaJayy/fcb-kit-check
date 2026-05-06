@@ -81,18 +81,34 @@ Ik was er niet ivm Smashing Conference!
 
 ### Dag 5 - Donderdag 16 april
 **Wat heb ik vandaag gedaan?** \
-Vandaag heb ik een begin
+Vandaag heb ik een begin gemaakt aan het werkend krijgen van de WeatherAPI. Echter werkte degene die ik wilde niet dus heb ik een gelukkig een nieuwe kunnen vinden. Verder heb ik met de tijden bepaald waarvan ik het weer wil laten zien, aangezien de API pas laat zien wanneer een wedstrijd is, als de wedstrijd al is geweest. 
 
 **Hoeveel tijd heeft me dat gekost?**\
-
+Dit heeft me 4 uur gekost.
 
 **Wat heb ik geleerd?**\
-
+Ik heb meer geleerd over data ophalen uit API's en over .env bestanden
 
 **Wat ga ik morgen doen?**\
+Volgende keer ga ik objects maken zodat ik de plekken en weather description codes kan toevoegen aan de array die ik uit de API haal. Ook ga ik de kits downloaden en wil ik de weer API verder werkend maken
 
 ## Reflectie Week 3
+Week 3 was een korte week voor mij, ik was namelijk één dag naar de Smashing Conference. Ik heb deze week vooral gewerkt aan mijn leerdoel over efficiënt beginnen aan een project. Nadat ik erachter kwam dat de OpenWeather API niet werkte zoals ik had gehoopt, kon ik snel overschakelen naar een andere API. Ik heb hierbij niet veel tijd verloren en goed probleemoplossend nagedacht.
 
+Aan mijn twee andere leerdoelen heb ik niet veel kunnen werken doordat ik naar de Smashing Conference was. Dit is een goed streven voor volgende week, ik hoop dan ook meer toe te komen aan de visuele kant van het project, zodat ik leerdoelen 1 en 3 meer kan oppakken.
+
+Afgelopen week heb ik ook weer veel gehad aan mijn schetsboekje! Ik merk echt dat het helpt met probleemoplossend denken (wat ook handig is voor het echte leven :) ) als ik alles opschrijf wat ideeën kunnen zijn.
+
+<img src="/readme-media/dag5-schets.jpeg" alt="" width="500px">
+
+<img src="/readme-media/dag5-schets2.jpeg" alt="" width="500px">
+
+Ook was het handig dat ik mijn boekje meenam als ik vragen ging stellen, zodat de uitleg ervan meteen in mijn boekje zat. Ik kon nog wel eens denken dat ik het wel zou kunnen onthouden, maar dat blijkt altijd lastiger dan ik denk. Dus nu heb ik het goed op kunnen schrijven.
+
+
+<img src="/readme-media/dag5-uitleg.jpeg" alt="" width="500px">
+
+## Week 4
 ### Dag 6 - Woensdag 22 april, met Sela
 **Wat heb ik vandaag gedaan?** \
 Ik heb ervoor gezorgd dat de weatherAPI het volledig doet, en dat er een shirt wordt laten zien tov van het weer. Het weer is ook het 'gemiddelde weer' (tussen 16:00 en 23:00)
@@ -106,19 +122,81 @@ Ik heb meer geleerd over API's toevoegen met ${} en Astro werkt met het op het i
 **Wat ga ik morgen doen?**\
 Morgen ga ik de Geolocation API toevoegen, de stijling afmaken, en een start maken aan de detail pagina.
 
+### Dag 7 - Donderdag 23 april, met Sela
+**Wat heb ik vandaag gedaan?** \
+Vandaag heb ik de Geolocation API werkend gemaakt door een knop toe te voegen aan de pagina en de stijling van de pagina een beetje aan te passen
+
+**Hoeveel tijd heeft me dat gekost?**\
+Het heeft me ongeveer 3 uur gekost. 
+
+**Wat heb ik geleerd?**\
+Ik heb veel geleerd over de geolocation API.
+
+**Wat ga ik morgen doen?**\
+Volgende keer wil ik een start maken aan de H2H / detail pagina.
+
+## Reflectie week 4
+Deze week was een productieve week. Grotendeels wat de website inhoudt heb ik nu gedaan. De informatie van de weer API en de FC Barcelona API heb ik nu volledig, dus het einde is in zicht! Wel moet ik helaas nog veel doen in de vakantie. 
+
+Deze week waren vooral mijn leerdoelen over het ontwikkelen van mijn CSS skills en het efficiënt beginnen/werken aan bod. De website begint nu echt vorm te krijgen, waardoor mijn leerdoel over het ontwikkelen van mijn eigen stijl ook steeds meer naar voren komt. 
+Ook groei ik in het onderwerp over API's. Ik begrijp nu beter hoe je Arrays kunt aanpassen en hoe je deze verder kunt verwerken in een website.
+
+<img src="/readme-media/dag6-schets.jpeg" alt="" width="500px">
+
+Ook is mijn ontwikkeling in de stijl-leerdoel te zien in mijn schetsboekje. Ik probeer vaak een beetje out of the box te denken als het gaat om designen, om dat dat nu tijdens je studie juist kan!
+
+<img src="/readme-media/dag7-stijl.jpeg" alt="" width="500px">
+
+<img src="/readme-media/dag7-stijl2.jpeg alt=" width="500px">
+
+## Week 5
+### Dag 8 - Dinsdag 28 april
+**Wat heb ik vandaag gedaan?** \
+Vandaag heb ik de H2H pagina aangemaakt en de index pagina in twee componenten opgesplitst, zodat ik één component kan gebruiken voor de H2H pagina
+
+**Hoeveel tijd heeft me dat gekost?**\
+Dit heeft ongeveer 2 uur geduurd.
+
+**Wat heb ik geleerd?**\
+Ik heb meer geleerd over componenten.
+
+**Wat ga ik morgen doen?**\
+Morgen ga ik nog een Web API toevoegen en de H2H verder afmaken.
 
 
-geolocation api
+### Dag 9 - Woensdag 29 april
+**Wat heb ik vandaag gedaan?** \
+Vandaag heb ik een start van de popover gemaakt, helaas is hij de hele tijd zichtbaar in het scherm, ook heb ik de H2H verder afgemaakt.
 
-navigator.geolocation.getCurrentPosition((result) => {
-    console.log(result)
-})
+**Hoeveel tijd heeft me dat gekost?**\
+Dit heeft me 2 uur gekost
 
-die geeft 
+**Wat heb ik geleerd?**\
+Ik heb meer geleerd over de Popover API
 
-moretools -> sensors -> bij location kan je de locatie invoeren
+**Wat ga ik morgen doen?**\
+Morgen ga ik de popover werkend maken, de pagina responsive maken en hopelijk het verder afmaken.
+
+### Dag 10 - Donderdag 30 april
+**Wat heb ik vandaag gedaan?** \
+Vandaag heb ik de popover werkend gemaakt (moest een div erin maken voor de display flex), heb ik mijn webpagina responsive gemaakt en heb ik de stijling verder afgemaakt.
+
+**Hoeveel tijd heeft me dat gekost?**\
+Dit heeft me 3 uur gekost
+
+**Wat heb ik geleerd?**\
+Ik heb niet veel geleerd, dit waren de laatste dingetjes.
+
+**Wat ga ik morgen doen?**\
+De volgende keer ga ik de readme verder schrijven, en dan inleveren!
+
+## Week 5 reflectie
+De website zelf is nu echt af, en het ging echt met ups en downs. Sommige onderdelen duurde veel langer dan ik dacht, zoals uitvogelen wat ik van de Weather API precies nodig had, terwijl andere delen juist heel snel gingen, zoals de Geolocation werkend krijgen. Daarnaast ben ik er tijdens dit project ook achter gekomen wat precies client- en serverside gerund moet worden. Daar had ik voordat ik aan dit project begon nog geen idee van. 
+
+Tijdens deze laatste week heb ik ook besloten niet veel in mijn boekje te doen. Ik wil namelijk ook leren 'schetsen' aan de hand van code. En dat is mij best een beetje gelukt. Ik vond de vormgeving van de knoppen een beetje lastig dus besloot ik die aan de hand van code aan te passen, en niet eerst te schetsen. 
+
+Ik ben trots op mijn resultaat. Ookal waren mijn ideeën wel ambiteuzer dan mijn resultaten, ik had bijvoorbeeld nog een kalender toe willen voegen van aankomende matches (en dat je die ook kon selecteren), vind ik mijn website en leuk en handig idee! Tijdens dit gehele project is vooral mijn efficientie leerdoel van pas gekomen, ook door het gebruik van componenten, zodat ik niet code hoef te herschrijven, maar alles een aantal keer gebruikt kan worden. Het leerdoel over mijn eigen stijl ontdekken heeft deze laatste week wat ontwikkeling doorgemaakt, doordat ik echt dingen begon te proberen met code. Mijn CSS-leerdoel heeft vooral ontwikkelingen doorgemaakt aan de hand van kleine beetjes hier en daar, zoals bijvoorbeeld erachter komen waarom de popover niet werkte en weten wanneer ik wel en niet een div moet gebruiken.
 
 
-EXTRA'S:
-- als vandaag wedstrijd is, dan tekst: UN DIA DE PARTIT!
-    en geluid van un dia de partit
+
+## Bronnen

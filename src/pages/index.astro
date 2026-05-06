@@ -61,8 +61,6 @@ nextMatch.h2h = (
 	nextMatch.awayTeam.replaceAll(" ", "+")
 ).replaceAll("Barcelona", "");
 
-// console.log(nextMatch);
-
 // ---------- DATE IN WORDS:
 
 const nextMatchDate = nextMatch.matchDate;
@@ -81,40 +79,13 @@ const ordinal = (n) => {
 
 const formatted = `${day}, ${ordinal(date.day)} of ${month} ${year}`;
 
-// ---------- MATCH CALENDAR:
-
-const calendarEndpoint = "calendar?limit=50&offset=0";
-const calendarURL = barcaBaseURL + calendarEndpoint;
-const calendarResponse = await fetch(calendarURL);
-const calendarArray = await calendarResponse.json();
-const calendar = calendarArray.data;
-const allMatches = calendar.matches;
-
-allMatches.map((match) => {
-	match.location =
-		laLigaLocations[
-			match.homeTeam.toLowerCase().replaceAll(" ", "").replaceAll("é", "e")
-		];
-	match.h2h = (
-		match.homeTeam.replaceAll(" ", "+") + match.awayTeam.replaceAll(" ", "+")
-	).replaceAll("Barcelona", "");
-});
-
-// console.log(allMatches);
-
-// met behulp van: https://claude.ai/share/25b0ec6a-5a33-48c2-b95c-1ff0eaaf9f9b
-let nextMatchCal = allMatches.filter((m) => m.id >= nextMatchId);
+// -------- H2H
 
 const hToHEndpoint = `h2h?team=${nextMatch.h2h}`;
 const hToHURL = barcaBaseURL + hToHEndpoint;
 const hToHResponse = await fetch(hToHURL);
 const hToHArray = await hToHResponse.json();
 const hToH = hToHArray.data;
-
-// console.log(hToH);
-
-//console.log(nextMatchCal);
-// nextMatchCal.map((item) => console.log(item.matchDate));
 
 // ----------- WEATHER
 
@@ -125,8 +96,6 @@ const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longi
 const weatherRes = await fetch(weatherUrl);
 const weatherData = await weatherRes.json();
 // https://open-meteo.com/en/docs?latitude=41.3888&longitude=2.159&forecast_days=14&hourly=temperature_2m,weather_code,apparent_temperature,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto
-
-// console.log(weatherData);
 
 // unknown time
 const hourlyWeather = weatherData.hourly;
@@ -200,8 +169,6 @@ if (gameTemp < 12) {
 } else {
 	kitImage = "longsleeve";
 }
-
-// console.log(kitImage);
 ---
 
 <HomeLayout title="FC BARCELONA KIT">
